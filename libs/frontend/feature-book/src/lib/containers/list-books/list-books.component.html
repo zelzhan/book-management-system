@@ -1,13 +1,15 @@
 <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
 
 <mat-card>
-  <mat-card-header>
-    <h2><b>List of books:</b></h2>
-  </mat-card-header>
+  <mat-form-field class="search">
+    <mat-label>Search books</mat-label>
+    <input  matInput type="search" [(ngModel)]="search" />
+  </mat-form-field>
   <div *ngIf="books">
     <mat-grid-list cols="5" rowHeight="1:2">
-      <mat-grid-tile class="book"
-        *ngFor="let book of books"
+      <mat-grid-tile
+        class="book"
+        *ngFor="let book of books | filter: search"
         (click)="openDialog(book)"
       >
         {{ book.name }}

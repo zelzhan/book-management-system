@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +21,7 @@ import { BookDialogComponent } from './components/book-dialog/book-dialog.compon
 
 @NgModule({
   imports: [
+    Ng2SearchPipeModule,
     CommonModule,
     MatIconModule,
     RoutingModule,

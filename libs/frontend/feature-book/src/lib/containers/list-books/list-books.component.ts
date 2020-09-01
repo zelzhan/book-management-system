@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { BookDialogComponent } from '../../components/book-dialog/book-dialog.component';
 
 import { Book, BookService, Author } from '../../services/book.service';
@@ -11,6 +11,7 @@ import { Book, BookService, Author } from '../../services/book.service';
 })
 export class ListBooksComponent implements OnInit {
   books: Book[];
+  search: string;
 
   constructor(private service: BookService, public dialog: MatDialog) {}
 
