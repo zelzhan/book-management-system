@@ -23,12 +23,20 @@ export class BookService {
     return this.http.post<Book>('api/book', payload);
   }
 
+  public deleteBook(id: string) {
+    return this.http.delete(`api/book/${id}`);
+  }
+
+  public updateBook(id: string, data: Book) {
+    return this.http.put<Book>(`api/book/${id}`, data);
+  }
+
   public getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('api/book');
   }
 
   public getAuthor(id: string): Observable<Author> {
-    return this.http.get<Author>(`api/author/${id}`)
+    return this.http.get<Author>(`api/author/${id}`);
   }
 
   public getAuthors(): Observable<Author[]> {
