@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { FeatureAuthorModule } from '@book-management-system/feature-author';
 import { FeatureBookModule } from '@book-management-system/feature-book';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,6 +13,7 @@ import { AppService } from './app.service';
     MongooseModule.forRoot('mongodb://localhost/test'),
     FeatureAuthorModule,
     FeatureBookModule,
+    MDBBootstrapModule
   ],
   controllers: [AppController],
   providers: [AppService],
