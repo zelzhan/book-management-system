@@ -18,6 +18,12 @@
     "paths": {
       "@book-management-system/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
+      ],
+      "@book-management-system/feature-book": [
+        "libs/feature-book/src/index.ts"
+      ],
+      "@book-management-system/feature-author": [
+        "libs/feature-author/src/index.ts"
       ]
     }
   },

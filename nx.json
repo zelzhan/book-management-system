@@ -34,6 +34,12 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "feature-book": {
+      "tags": []
+    },
+    "feature-author": {
+      "tags": []
     }
   }
 }

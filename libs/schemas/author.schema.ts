@@ -3,10 +3,10 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class Author extends Document {
-  @Prop()
+  @Prop({ required: true })
   firstName: string;
 
-  @Prop()
+  @Prop({ required: true })
   lastName: string;
 }
 

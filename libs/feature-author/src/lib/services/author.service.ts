@@ -9,8 +9,8 @@ export class AuthorsService {
   constructor(@InjectModel('author') private authorModel: Model<Author>) {}
 
   async create(createAuthorDto: CreateAuthorDTO): Promise<Author> {
-    const createdCat = new this.authorModel(createAuthorDto);
-    return createdCat.save();
+    const createdAuthor = new this.authorModel(createAuthorDto);
+    return createdAuthor.save();
   }
 
   async findAll(): Promise<Author[]> {
