@@ -8,6 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +20,10 @@ import { BookDialogComponent } from './components/book-dialog/book-dialog.compon
 @NgModule({
   imports: [
     CommonModule,
+    MatIconModule,
     RoutingModule,
+    MatInputModule,
+    MatListModule,
     MatAutocompleteModule,
     MatCardModule,
     MatAutocompleteModule,

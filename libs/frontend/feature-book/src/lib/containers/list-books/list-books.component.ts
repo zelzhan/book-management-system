@@ -20,14 +20,17 @@ export class ListBooksComponent implements OnInit {
     });
   }
 
-  openDialog({ name, isbn, author }: Book) {
+  openDialog({ name, isbn, author, _id }: Book) {
     this.service.getAuthor(author).subscribe((author: Author) => {
       this.dialog.open(BookDialogComponent, {
         data: {
+          _id: _id,
           name: name,
           isbn: isbn,
           author: author,
         },
+        height: '50%',
+        width: '50%',
       });
     });
   }

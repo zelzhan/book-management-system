@@ -1,9 +1,68 @@
 <h1 mat-dialog-title>Book Information:</h1>
 <div mat-dialog-content>
-  <h2>
-    <b>{{ data.name }}</b>
-  </h2>
+  <form [formGroup]="bookForm">
+    <h4>
+      <div>
+        <b>Book: </b>
 
-  <h4><b>ISBN:</b> {{ data.isbn }}</h4>
-  <h4><b>Author:</b> {{ data.author.firstName }} {{ data.author.lastName }}</h4>
+        <mat-form-field *ngIf="editMode" class="example-form-field">
+          <input
+            matInput
+            type="text"
+            formControlName="name"
+            [(ngModel)]="data.name"
+          />
+        </mat-form-field>
+
+        <label *ngIf="!editMode">{{ data.name }}</label>
+      </div>
+    </h4>
+
+    <h4>
+      <b>ISBN:</b>
+      <mat-form-field *ngIf="editMode" class="example-form-field">
+        <input
+          matInput
+          type="text"
+          formControlName="isbn"
+          [(ngModel)]="data.isbn"
+        />
+      </mat-form-field>
+      <label *ngIf="!editMode">{{ data.isbn }}</label>
+    </h4>
+
+    <h4>
+      <b>Author:</b>
+      <label *ngIf="!editMode">
+        {{ data.author.firstName }} {{ data.author.lastName }}
+      </label>
+      <input
+        *ngIf="editMode"
+        [(ngModel)]="data.author"
+        formControlName="author"
+        id="author"
+        type="text"
+        class="form-control"
+        [matAutocomplete]="auto"
+      />
+    </h4>
+
+    <button mat-button color="primary" (click)="editMode = true">Edit</button>
+    <button mat-button color="success" (click)="editMode = false; onSubmit()">
+      Save
+    </button>
+
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      [displayWith]="displayFn"
+    >
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option.firstName }} {{ option.lastName }}
+      </mat-option>
+    </mat-autocomplete>
+  </form>
 </div>
