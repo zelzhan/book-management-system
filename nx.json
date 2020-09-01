@@ -40,6 +40,9 @@
     },
     "feature-author": {
       "tags": []
+    },
+    "frontend-feature-author": {
+      "tags": []
     }
   }
 }

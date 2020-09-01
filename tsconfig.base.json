@@ -24,6 +24,9 @@
       ],
       "@book-management-system/feature-author": [
         "libs/feature-author/src/index.ts"
+      ],
+      "@book-management-system/frontend/feature-author": [
+        "libs/frontend/feature-author/src/index.ts"
       ]
     }
   },

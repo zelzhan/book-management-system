@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Author } from '../../../../schemas/author.schema';
 import { CreateAuthorDTO } from '../dtos/create-author.dto';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class AuthorsService {
@@ -15,5 +16,13 @@ export class AuthorsService {
 
   async findAll(): Promise<Author[]> {
     return this.authorModel.find().exec();
+  }
+
+  async find(id: ObjectId): Promise<Author> {
+    return this.authorModel
+      .findOne({
+        _id: id,
+      })
+      .exec();
   }
 }
