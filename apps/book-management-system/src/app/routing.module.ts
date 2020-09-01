@@ -9,6 +9,13 @@ const routes: Routes = [
         (mod) => mod.FrontendFeatureAuthorModule
       ),
   },
+  {
+    path: 'book',
+    loadChildren: () =>
+      import('@book-management-system/frontend/feature-book').then(
+        (mod) => mod.FrontendFeatureBookModule
+      ),
+  },
 ];
 
 @NgModule({

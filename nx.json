@@ -43,6 +43,9 @@
     },
     "frontend-feature-author": {
       "tags": []
+    },
+    "frontend-feature-book": {
+      "tags": []
     }
   }
 }
