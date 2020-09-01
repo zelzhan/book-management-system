@@ -8,10 +8,10 @@ export interface Author {
   lastName: string;
 }
 
-interface Book {
-  name:string;
-  isbn:string;
-  author:string;
+export interface Book {
+  name: string;
+  isbn: string;
+  author: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -20,6 +20,14 @@ export class BookService {
 
   public createBook(payload): Observable<Book> {
     return this.http.post<Book>('api/book', payload);
+  }
+
+  public getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>('api/book');
+  }
+
+  public getAuthor(id: string): Observable<Author> {
+    return this.http.get<Author>(`api/author/${id}`)
   }
 
   public getAuthors(): Observable<Author[]> {

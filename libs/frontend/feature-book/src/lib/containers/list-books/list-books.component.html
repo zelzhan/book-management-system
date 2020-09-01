@@ -1,0 +1,11 @@
+<h1><b>List of books:</b></h1>
+<!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+
+<div *ngIf="books">
+  <mat-card *ngFor="let book of books" (click)="openDialog(book)">
+    <mat-card-header>
+      <h2>{{ book.name }}</h2>
+      <br />
+    </mat-card-header> </mat-card
+  ><br /><br /><br />
+</div>

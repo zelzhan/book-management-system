@@ -7,9 +7,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListBooksComponent } from './containers/list-books/list-books.component';
+import { BookDialogComponent } from './components/book-dialog/book-dialog.component';
 
 @NgModule({
   imports: [
@@ -18,15 +21,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatAutocompleteModule,
     MatCardModule,
     MatAutocompleteModule,
-
     MatFormFieldModule,
     MatButtonModule,
+    MatDialogModule,
     RoutingModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
   ],
-  declarations: [CreateBookComponent, BookFormComponent],
+  declarations: [
+    CreateBookComponent,
+    BookFormComponent,
+    ListBooksComponent,
+    BookDialogComponent,
+  ],
 })
 export class FrontendFeatureBookModule {}
