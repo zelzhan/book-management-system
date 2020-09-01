@@ -48,15 +48,21 @@ export class BookDialogComponent implements OnInit {
       author: this.bookForm.value.author._id,
       _id: this.data._id,
     });
-    this.service.updateBook(this.data._id, this.bookForm.value).subscribe();
+    this.service
+      .updateBook(this.data._id, this.bookForm.value)
+      .subscribe(() => {
+        location.reload();
+      });
   }
 
   delete() {
-    this.service.deleteBook(this.data._id).subscribe()
+    this.service.deleteBook(this.data._id).subscribe(() => {
+      location.reload();
+    });
   }
 
   private _filter(value: { author: string }): Author[] {
-    if (!value || value.author) {
+    if (!value || !(typeof value.author === 'string')) {
       return;
     }
 

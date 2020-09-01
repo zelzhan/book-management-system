@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { BookService, Author } from '../../services/book.service';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'frontend-book-form',
@@ -19,7 +20,7 @@ export class BookFormComponent implements OnInit {
   public options: Author[] = [];
   public filteredOptions: Observable<Author[]>;
 
-  constructor(private service: BookService) {}
+  constructor(private service: BookService, private router: Router) {}
 
   ngOnInit() {
     this.service.getAuthors().subscribe((authors: Author[]) => {
@@ -38,18 +39,19 @@ export class BookFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.bookForm.patchValue({
-      author: this.bookForm.value.author._id,
-    });
-    this.service.createBook(this.bookForm.value).subscribe();
+    this.bookForm.value.author = this.bookForm.value.author._id;
+    this.service
+      .createBook(this.bookForm.value)
+      .subscribe(() => this.router.navigate(['/book/list']));
   }
 
   private _filter(value: { author: string }): Author[] {
-    if (!value || value.author) {
+    if (!value || !(typeof value.author === 'string')) {
       return;
     }
 
     const filterValue = (value.author as string).toLowerCase();
+
     return this.options.filter(
       (option) =>
         `${option.firstName} ${option.lastName}`

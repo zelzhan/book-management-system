@@ -3,7 +3,7 @@
   <form [formGroup]="bookForm">
     <h4>
       <div>
-        <b>Book: </b>
+        <b>Book:  </b>
 
         <mat-form-field *ngIf="editMode" class="example-form-field">
           <input
@@ -19,7 +19,7 @@
     </h4>
 
     <h4>
-      <b>ISBN:</b>
+      <b>ISBN:  </b>
       <mat-form-field *ngIf="editMode" class="example-form-field">
         <input
           matInput
@@ -32,26 +32,36 @@
     </h4>
 
     <h4>
-      <b>Author:</b>
+      <b>Author:  </b>
       <label *ngIf="!editMode">
         {{ data.author.firstName }} {{ data.author.lastName }}
       </label>
-      <input
-        *ngIf="editMode"
-        [(ngModel)]="data.author"
-        formControlName="author"
-        id="author"
-        type="text"
-        class="form-control"
-        [matAutocomplete]="auto"
-      />
+      <mat-form-field *ngIf="editMode" class="example-form-field">
+        <input
+          matInput
+          *ngIf="editMode"
+          [(ngModel)]="data.author"
+          formControlName="author"
+          id="author"
+          type="text"
+          class="form-control"
+          [matAutocomplete]="auto"
+        />
+      </mat-form-field>
     </h4>
 
     <button mat-button color="primary" (click)="editMode = true">Edit</button>
-    <button mat-button color="success" (click)="editMode = false; onSubmit()">
+    <button
+      mat-button
+      color="success"
+      style="text-align: center; margin: auto;"
+      (click)="editMode = false; onSubmit()"
+    >
       Save
     </button>
-    <button mat-button color="warn" (click)="delete()">Delete</button>
+    <button mat-button color="warn" style="float: right;" (click)="delete()">
+      Delete
+    </button>
 
     <mat-autocomplete
       autoActiveFirstOption

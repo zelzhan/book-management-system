@@ -1,24 +1,46 @@
 <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="name">Name</label>
-    <input formControlName="name" id="name" type="text" class="form-control" />
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the name of the book</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        id="name"
+        type="text"
+        class="form-control"
+        required
+      />
+    </mat-form-field>
   </div>
 
   <div class="form-group">
-    <label for="isbn">ISBN</label>
-    <input formControlName="isbn" id="isbn" type="text" class="form-control" />
+    <mat-form-field appearance="fill">
+      <mat-label>Enter ISBN</mat-label>
+      <input
+        matInput
+        formControlName="isbn"
+        id="isbn"
+        type="text"
+        class="form-control"
+        required
+      />
+    </mat-form-field>
   </div>
 
   <div class="form-group">
-    <label for="author">Author</label>
-    <input
-      placeholder="select from existing authors"
-      formControlName="author"
-      id="author"
-      type="text"
-      class="form-control"
-      [matAutocomplete]="auto"
-    />
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the author</mat-label>
+      <input
+        matInput
+        placeholder="select from existing authors"
+        formControlName="author"
+        id="author"
+        type="text"
+        class="form-control"
+        [matAutocomplete]="auto"
+        required
+      />
+    </mat-form-field>
 
     <mat-autocomplete
       autoActiveFirstOption
@@ -33,5 +55,12 @@
       </mat-option>
     </mat-autocomplete>
   </div>
-  <button type="submit" [disabled]="!bookForm.valid">Submit</button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!bookForm.valid"
+  >
+    Create
+  </button>
 </form>

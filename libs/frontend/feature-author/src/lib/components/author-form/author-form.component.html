@@ -1,13 +1,38 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label>
-    First Name:
-    <input type="text" formControlName="firstName" />
-  </label>
-
-  <label>
-    Last Name:
-    <input type="text" formControlName="lastName" />
-  </label>
-
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name: </mat-label>
+      <input
+        matInput
+        formControlName="firstName"
+        id="name"
+        type="text"
+        class="form-control"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name: </mat-label>
+      <input
+        matInput
+        formControlName="lastName"
+        id="name"
+        type="text"
+        class="form-control"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!profileForm.valid"
+    >
+      Create
+    </button>
+  </div>
 </form>

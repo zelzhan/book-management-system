@@ -5,8 +5,8 @@ import { BookService } from './services/book.service';
 import { ListBooksComponent } from './containers/list-books/list-books.component';
 
 const routes: Routes = [
-  { path: 'create', component: CreateBookComponent },
-  { path: 'list', component: ListBooksComponent },
+  { path: 'create', component: CreateBookComponent, pathMatch: 'full' },
+  { path: 'list', component: ListBooksComponent, pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

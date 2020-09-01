@@ -29,7 +29,6 @@ export class ListBooksComponent implements OnInit {
           isbn: isbn,
           author: author,
         },
-        height: '50%',
         width: '50%',
       });
     });

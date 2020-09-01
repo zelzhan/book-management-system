@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +36,7 @@ import { BookDialogComponent } from './components/book-dialog/book-dialog.compon
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatGridListModule,
   ],
   declarations: [
     CreateBookComponent,

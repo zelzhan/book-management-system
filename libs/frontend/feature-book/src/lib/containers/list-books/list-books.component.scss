@@ -1,4 +1,13 @@
 mat-card {
-    margin: 5em;
-    cursor: pointer;
+  margin: 5em;
+  cursor: pointer;
+}
+
+.book {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.book:hover {
+    background-color: grey;
 }
